@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body><h1>BGM再生</h1>
+<p>[1]再生　[2]先頭から再生　[3]一時停止</p>
+<script>
+
+var BGM = new Audio('./tetris.mp3');	//音声オブジェクトの新規作成
+BGM.playbackRate = 1.2;	//再生speed 1未満(遅い),1(標準),1超(速い)
+BGM.loop = true;			//繰返し再生指定
+
+
+document.onkeydown = function(e)
+{
+	switch(e.keyCode)
+	{
+		case 49:	//[1]再生
+ 			BGM.play(); //音声の再生 
+			break;
+
+		case 50:	//[2]先頭から再生
+			BGM.currentTime = 0;		//再生位置を先頭に戻す
+			BGM.play();					//音声の再生
+			break;
+
+		case 51:	//[3]一時停止
+			BGM.pause();				//一時停止
+			break;
+
+	}
+}
+</script>
+</body></html>
